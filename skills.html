@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inshara Naaz | Skills</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ============ SKILLS PAGE ============ */
+.skills-hero {
+  padding: 140px 6% 60px;
+  text-align:center;
+}
+.skills-hero .tag {
+  color: var(--primary); font-weight:700;
+  font-size:.8rem; letter-spacing:3px; text-transform:uppercase;
+}
+.skills-hero .tag-line {
+  width:50px; height:3px; background: var(--grad);
+  margin:.6rem auto 1.2rem; border-radius:3px;
+}
+.skills-hero h1 {
+  font-size: clamp(2.5rem,5vw,4rem); font-weight:800; line-height:1.1;
+}
+.skills-hero h1 span {
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.skills-hero p {
+  color: var(--text-soft); max-width:620px;
+  margin:1.2rem auto 0; font-size:1.05rem;
+}
+
+/* ============ WHAT I EXCEL AT ============ */
+.excel {
+  padding: 4rem 6% 5rem;
+  max-width:1300px; margin:0 auto;
+}
+.excel-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap:1.8rem;
+}
+.excel-card {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:22px; padding:2.5rem 1.5rem; text-align:center;
+  box-shadow: var(--shadow);
+  transition: transform .4s, box-shadow .4s;
+}
+.excel-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(139,92,246,0.18);
+}
+.excel-icon {
+  font-size:2.5rem; margin-bottom:1.2rem; display:block;
+}
+.excel-card h3 {
+  font-size:1.1rem; font-weight:700; margin-bottom:1.5rem; color:var(--text);
+}
+.excel-stats {
+  display:grid; grid-template-columns: 1fr 1fr;
+  gap:.8rem; margin-bottom:1.5rem;
+}
+.excel-stat {
+  background: var(--bg); border:1px solid var(--border);
+  border-radius:12px; padding:.9rem .4rem;
+}
+.excel-stat .val {
+  font-size:1.4rem; font-weight:800;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.excel-stat .lbl {
+  color: var(--text-soft); font-size:.72rem;
+  margin-top:.35rem; font-weight:500;
+}
+.excel-bar {
+  height:8px; background: var(--border); border-radius:50px; overflow:hidden;
+}
+.excel-bar span {
+  display:block; height:100%; width:0;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  border-radius:50px;
+  transition: width 1.4s ease;
+}
+
+/* ============ SKILL CATEGORY ============ */
+.skill-cat {
+  padding: 2rem 6% 3rem;
+  max-width:1300px; margin:0 auto;
+}
+.cat-header {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:18px; padding:1.8rem 2rem;
+  display:flex; align-items:center; gap:1.2rem;
+  box-shadow: var(--shadow);
+  margin-bottom:2rem;
+}
+.cat-header .cat-icon {
+  width:55px; height:55px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem;
+  background: linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(14,165,233,0.12) 100%);
+  flex-shrink:0;
+}
+.cat-header h2 {
+  font-size:1.4rem; font-weight:700; margin-bottom:.25rem;
+}
+.cat-header p {
+  color: var(--text-soft); font-size:.9rem;
+}
+
+/* Skill cards row */
+.skill-row {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap:1.5rem;
+}
+.skill-card {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:18px; padding:1.6rem 1.7rem;
+  box-shadow: var(--shadow);
+  transition: transform .4s, box-shadow .4s;
+}
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(139,92,246,0.15);
+}
+.skill-top {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:1.1rem;
+  gap:.6rem;
+}
+.skill-name {
+  display:flex; align-items:center; gap:.7rem;
+  font-weight:600; font-size:1.02rem; color:var(--text);
+}
+.skill-name .ic { font-size:1.3rem; }
+.skill-pct {
+  font-weight:700; font-size:.9rem; color: var(--primary);
+  white-space:nowrap;
+}
+.skill-bar {
+  height:8px; background: var(--border); border-radius:50px; overflow:hidden;
+}
+.skill-bar span {
+  display:block; height:100%; width:0;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  border-radius:50px;
+  transition: width 1.4s ease;
+}
+
+/* ============ CTA ============ */
+.cta {
+  padding: 2rem 6% 6rem;
+  max-width:1000px; margin:0 auto;
+}
+.cta-box {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:28px; padding: 4rem 2rem; text-align:center;
+  box-shadow: 0 20px 50px rgba(139,92,246,0.1);
+  position:relative; overflow:hidden;
+}
+.cta-box::before {
+  content:''; position:absolute; top:0; left:0; width:100%; height:5px;
+  background: var(--grad);
+}
+.cta-box h2 {
+  font-size: clamp(2rem,4.5vw,3rem); font-weight:800;
+  margin-bottom:1rem;
+}
+.cta-box h2 span {
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.cta-box p {
+  color: var(--text-soft); font-size:1.05rem;
+  margin-bottom:2rem;
+}
+.cta-btn {
+  display:inline-block;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  color:white; padding:1rem 2.5rem;
+  border-radius:50px; text-decoration:none;
+  font-weight:600; font-size:1rem;
+  box-shadow: 0 12px 30px rgba(139,92,246,0.4);
+  transition:.3s;
+}
+.cta-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(139,92,246,0.55);
+}
+
+/* ============================================
+   RESPONSIVE — SKILLS PAGE
+   ============================================ */
+
+/* ===== LARGE DESKTOP (1440px+) ===== */
+@media (min-width: 1440px) {
+  .excel, .skill-cat { max-width:1400px; }
+}
+
+/* ===== SMALL LAPTOP (1025px - 1439px) ===== */
+@media (max-width: 1439px) {
+  .skills-hero { padding: 130px 5% 50px; }
+}
+
+/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
+@media (max-width: 1024px) {
+  .skills-hero { padding: 120px 5% 50px; }
+  .excel { padding: 3.5rem 5% 4rem; }
+  .skill-cat { padding: 1.5rem 5% 2.5rem; }
+  .skill-row {
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:1.2rem;
+  }
+  .excel-grid { gap:1.4rem; }
+}
+
+/* ===== TABLET PORTRAIT (601px - 768px) ===== */
+@media (max-width: 768px) {
+  .skills-hero { padding: 110px 5% 40px; }
+  .skills-hero p { font-size:.98rem; }
+  
+  .excel { padding: 3rem 5% 3rem; }
+  .excel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap:1.2rem;
+  }
+  .excel-card { padding:2rem 1.2rem; border-radius:18px; }
+  .excel-icon { font-size:2.2rem; margin-bottom:1rem; }
+  .excel-card h3 { font-size:1rem; margin-bottom:1.2rem; }
+  
+  .skill-cat { padding: 1.5rem 5% 2rem; }
+  .cat-header {
+    padding:1.4rem 1.3rem;
+    gap:1rem;
+    margin-bottom:1.5rem;
+    border-radius:16px;
+  }
+  .cat-header .cat-icon {
+    width:48px; height:48px;
+    font-size:1.4rem;
+    border-radius:12px;
+  }
+  .cat-header h2 { font-size:1.2rem; }
+  .cat-header p { font-size:.85rem; }
+  
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap:1rem;
+  }
+  .skill-card { padding:1.4rem 1.4rem; border-radius:16px; }
+  .skill-name { font-size:.98rem; }
+  .skill-name .ic { font-size:1.2rem; }
+  
+  .cta { padding: 1rem 5% 4rem; }
+  .cta-box { padding:3rem 1.5rem; border-radius:22px; }
+}
+
+/* ===== MOBILE LANDSCAPE (481px - 600px) ===== */
+@media (max-width: 600px) {
+  .skills-hero { padding: 100px 5% 35px; }
+  .skills-hero h1 { font-size: clamp(1.9rem, 7vw, 2.3rem); }
+  .skills-hero p { font-size:.92rem; }
+  
+  .excel { padding: 2.5rem 5% 2.5rem; }
+  .excel-grid { gap:1rem; }
+  .excel-card { padding:1.7rem 1rem; }
+  .excel-icon { font-size:2rem; }
+  .excel-card h3 { font-size:.95rem; margin-bottom:1rem; }
+  .excel-stat { padding:.75rem .3rem; }
+  .excel-stat .val { font-size:1.25rem; }
+  .excel-stat .lbl { font-size:.68rem; }
+  
+  .skill-cat { padding: 1.2rem 5% 1.8rem; }
+  .cat-header { padding:1.2rem 1.1rem; gap:.85rem; }
+  .cat-header .cat-icon { width:44px; height:44px; font-size:1.3rem; }
+  .cat-header h2 { font-size:1.1rem; }
+  .cat-header p { font-size:.8rem; }
+  
+  .skill-card { padding:1.3rem 1.2rem; }
+  .skill-name { font-size:.94rem; }
+  .skill-pct { font-size:.85rem; }
+  
+  .cta-box h2 { font-size:1.6rem; }
+  .cta-box p { font-size:.95rem; }
+  .cta-btn { padding:.9rem 2rem; font-size:.92rem; }
+}
+
+/* ===== MOBILE (320px - 480px) ===== */
+@media (max-width: 480px) {
+  .skills-hero { padding: 95px 5% 30px; }
+  .skills-hero .tag { font-size:.72rem; letter-spacing:2px; }
+  .skills-hero h1 { font-size:1.7rem; }
+  .skills-hero p { font-size:.88rem; margin-top:1rem; }
+  
+  .excel { padding: 2rem 5% 2rem; }
+  .excel-grid {
+    grid-template-columns: 1fr;
+    gap:.9rem;
+  }
+  .excel-card { padding:1.6rem 1.1rem; border-radius:16px; }
+  .excel-icon { font-size:1.9rem; margin-bottom:.9rem; }
+  .excel-card h3 { font-size:.95rem; margin-bottom:1rem; }
+  .excel-stats { gap:.6rem; margin-bottom:1.2rem; }
+  .excel-stat { padding:.7rem .3rem; border-radius:10px; }
+  .excel-stat .val { font-size:1.15rem; }
+  .excel-stat .lbl { font-size:.65rem; }
+  
+  .skill-cat { padding: 1rem 5% 1.5rem; }
+  .cat-header {
+    padding:1.1rem 1rem;
+    gap:.75rem;
+    border-radius:14px;
+    margin-bottom:1.2rem;
+  }
+  .cat-header .cat-icon {
+    width:42px; height:42px;
+    font-size:1.2rem;
+    border-radius:10px;
+  }
+  .cat-header h2 { font-size:1rem; }
+  .cat-header p { font-size:.75rem; line-height:1.4; }
+  
+  .skill-row { gap:.85rem; }
+  .skill-card { padding:1.2rem 1.1rem; border-radius:14px; }
+  .skill-top { margin-bottom:.9rem; }
+  .skill-name { font-size:.9rem; gap:.5rem; }
+  .skill-name .ic { font-size:1.1rem; }
+  .skill-pct { font-size:.82rem; }
+  .skill-bar { height:7px; }
+  
+  .cta { padding: 1rem 5% 3rem; }
+  .cta-box { padding:2.5rem 1.3rem; border-radius:20px; }
+  .cta-box h2 { font-size:1.4rem; }
+  .cta-box p { font-size:.88rem; margin-bottom:1.5rem; }
+  .cta-btn { padding:.85rem 1.8rem; font-size:.88rem; }
+}
+
+/* ===== VERY SMALL (up to 360px) ===== */
+@media (max-width: 360px) {
+  .skills-hero h1 { font-size:1.5rem; }
+  .skills-hero p { font-size:.82rem; }
+  
+  .excel-card { padding:1.4rem 1rem; }
+  .excel-icon { font-size:1.7rem; }
+  .excel-stat .val { font-size:1.05rem; }
+  
+  .cat-header { padding:1rem .9rem; gap:.65rem; }
+  .cat-header .cat-icon { width:38px; height:38px; font-size:1.1rem; }
+  .cat-header h2 { font-size:.95rem; }
+  .cat-header p { font-size:.72rem; }
+  
+  .skill-card { padding:1.1rem 1rem; }
+  .skill-name { font-size:.85rem; }
+  .skill-pct { font-size:.78rem; }
+  
+  .cta-box h2 { font-size:1.25rem; }
+  .cta-btn { padding:.8rem 1.5rem; font-size:.85rem; }
+}
+
+/* ===== TOUCH DEVICES ===== */
+@media (hover: none) and (pointer: coarse) {
+  .excel-card:hover,
+  .skill-card:hover {
+    transform:none;
+  }
+  .cta-btn:hover {
+    transform:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="logo">Inshara <span>Naaz</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html" class="active">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="theme-toggle" id="themeToggle">☀️</button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== HERO ===== -->
+<header class="skills-hero">
+  <div class="tag reveal">My Skills</div>
+  <div class="tag-line reveal"></div>
+  <h1 class="reveal">Technical <span>Expertise</span></h1>
+  <p class="reveal">Technologies and tools I work with to build amazing web applications</p>
+</header>
+
+<!-- ===== WHAT I EXCEL AT ===== -->
+<section class="excel">
+  <div class="sec-head reveal">
+    <div class="tag">Skill Highlights</div>
+    <div class="tag-line"></div>
+    <h2>What I <span>Excel At</span></h2>
+  </div>
+
+  <div class="excel-grid">
+    <div class="excel-card reveal">
+      <span class="excel-icon">🎨</span>
+      <h3>Frontend</h3>
+      <div class="excel-stats">
+        <div class="excel-stat"><div class="val">5</div><div class="lbl">Technologies</div></div>
+        <div class="excel-stat"><div class="val">90%</div><div class="lbl">Proficiency</div></div>
+      </div>
+      <div class="excel-bar"><span data-width="90%"></span></div>
+    </div>
+
+    <div class="excel-card reveal">
+      <span class="excel-icon">⚙️</span>
+      <h3>Backend</h3>
+      <div class="excel-stats">
+        <div class="excel-stat"><div class="val">3</div><div class="lbl">Technologies</div></div>
+        <div class="excel-stat"><div class="val">75%</div><div class="lbl">Proficiency</div></div>
+      </div>
+      <div class="excel-bar"><span data-width="75%"></span></div>
+    </div>
+
+    <div class="excel-card reveal">
+      <span class="excel-icon">🗄️</span>
+      <h3>Database</h3>
+      <div class="excel-stats">
+        <div class="excel-stat"><div class="val">3</div><div class="lbl">Technologies</div></div>
+        <div class="excel-stat"><div class="val">80%</div><div class="lbl">Proficiency</div></div>
+      </div>
+      <div class="excel-bar"><span data-width="80%"></span></div>
+    </div>
+
+    <div class="excel-card reveal">
+      <span class="excel-icon">🛠️</span>
+      <h3>Tools</h3>
+      <div class="excel-stats">
+        <div class="excel-stat"><div class="val">5</div><div class="lbl">Technologies</div></div>
+        <div class="excel-stat"><div class="val">77%</div><div class="lbl">Proficiency</div></div>
+      </div>
+      <div class="excel-bar"><span data-width="77%"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FRONTEND DEVELOPMENT ===== -->
+<section class="skill-cat">
+  <div class="cat-header reveal">
+    <div class="cat-icon">🎨</div>
+    <div>
+      <h2>Frontend Development</h2>
+      <p>Building responsive and interactive user interfaces</p>
+    </div>
+  </div>
+
+  <div class="skill-row">
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🌐</span> HTML5</div>
+        <div class="skill-pct">95%</div>
+      </div>
+      <div class="skill-bar"><span data-width="95%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🎨</span> CSS3</div>
+        <div class="skill-pct">92%</div>
+      </div>
+      <div class="skill-bar"><span data-width="92%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">📱</span> Bootstrap</div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-bar"><span data-width="90%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">⚡</span> JavaScript</div>
+        <div class="skill-pct">88%</div>
+      </div>
+      <div class="skill-bar"><span data-width="88%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🅰️</span> Angular</div>
+        <div class="skill-pct">75%</div>
+      </div>
+      <div class="skill-bar"><span data-width="75%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">💻</span> Responsive Web Design</div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-bar"><span data-width="90%"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BACKEND DEVELOPMENT ===== -->
+<section class="skill-cat">
+  <div class="cat-header reveal">
+    <div class="cat-icon">⚙️</div>
+    <div>
+      <h2>Backend Development</h2>
+      <p>Building robust server-side applications</p>
+    </div>
+  </div>
+
+  <div class="skill-row">
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🐘</span> PHP</div>
+        <div class="skill-pct">80%</div>
+      </div>
+      <div class="skill-bar"><span data-width="80%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">💠</span> C#</div>
+        <div class="skill-pct">75%</div>
+      </div>
+      <div class="skill-bar"><span data-width="75%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🔷</span> ASP.NET MVC</div>
+        <div class="skill-pct">70%</div>
+      </div>
+      <div class="skill-bar"><span data-width="70%"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DATABASE MANAGEMENT ===== -->
+<section class="skill-cat">
+  <div class="cat-header reveal">
+    <div class="cat-icon">🗄️</div>
+    <div>
+      <h2>Database Management</h2>
+      <p>Designing and managing data efficiently</p>
+    </div>
+  </div>
+
+  <div class="skill-row">
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🐬</span> MySQL</div>
+        <div class="skill-pct">85%</div>
+      </div>
+      <div class="skill-bar"><span data-width="85%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">📊</span> SQL Server</div>
+        <div class="skill-pct">75%</div>
+      </div>
+      <div class="skill-bar"><span data-width="75%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">📋</span> JSON</div>
+        <div class="skill-pct">80%</div>
+      </div>
+      <div class="skill-bar"><span data-width="80%"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOOLS & PLATFORMS ===== -->
+<section class="skill-cat">
+  <div class="cat-header reveal">
+    <div class="cat-icon">🛠️</div>
+    <div>
+      <h2>Tools &amp; Platforms</h2>
+      <p>Tools I use to build and deploy applications</p>
+    </div>
+  </div>
+
+  <div class="skill-row">
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">💻</span> Visual Studio</div>
+        <div class="skill-pct">85%</div>
+      </div>
+      <div class="skill-bar"><span data-width="85%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">📝</span> VS Code</div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-bar"><span data-width="90%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🔀</span> Git</div>
+        <div class="skill-pct">70%</div>
+      </div>
+      <div class="skill-bar"><span data-width="70%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">🐙</span> GitHub</div>
+        <div class="skill-pct">60%</div>
+      </div>
+      <div class="skill-bar"><span data-width="60%"></span></div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-top">
+        <div class="skill-name"><span class="ic">⚡</span> XAMPP</div>
+        <div class="skill-pct">80%</div>
+      </div>
+      <div class="skill-bar"><span data-width="80%"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="cta-box reveal">
+    <h2>Ready to Build <span>Something?</span></h2>
+    <p>Let's work together to create something amazing.</p>
+    <a href="contact.html" class="cta-btn">Contact Me</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-wrap">
+    <div class="f-col">
+      <div class="f-logo">Inshara <span>Naaz</span></div>
+      <p>Full Stack Web Developer crafting modern, responsive, and database-driven web applications.</p>
+      <div class="f-socials">
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="Instagram">◉</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Quick Links</h4>
+      <ul class="f-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Let's Connect</h4>
+      <p class="connect-text">Have a project in mind? Let's work together.</p>
+      <a href="contact.html" class="f-btn">Get in Touch</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Inshara Naaz. All rights reserved. Built with 💜
+  </div>
+</footer>
+
+<button class="scroll-top">↑</button>
+
+<script src="script.js"></script>
+<script>
+  /* ===== SKILLS PAGE: progress bar animation ===== */
+  const skillBars = document.querySelectorAll('.skill-bar span, .excel-bar span');
+  const skillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.width;
+        skillObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  skillBars.forEach(b => skillObs.observe(b));
+</script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inshara Naaz | Education</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ============ EDUCATION PAGE ============ */
+.edu-hero {
+  padding: 140px 6% 40px;
+  text-align:center;
+}
+.edu-hero .tag {
+  color: var(--primary); font-weight:700;
+  font-size:.8rem; letter-spacing:3px; text-transform:uppercase;
+}
+.edu-hero .tag-line {
+  width:50px; height:3px; background: var(--grad);
+  margin:.6rem auto 1.2rem; border-radius:3px;
+}
+.edu-hero h1 {
+  font-size: clamp(2.5rem,5vw,4rem); font-weight:800; line-height:1.1;
+}
+.edu-hero h1 span {
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.edu-hero p {
+  color: var(--text-soft); max-width:650px;
+  margin:1.2rem auto 0; font-size:1.05rem;
+}
+
+/* ============ LEARNING MILESTONES ============ */
+.milestones {
+  padding: 4rem 6% 5rem;
+  max-width:1300px; margin:0 auto;
+}
+.milestone-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap:1.8rem;
+  margin-top:3rem;
+}
+.milestone-card {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:22px; padding:2.5rem 1.5rem; text-align:center;
+  box-shadow: var(--shadow);
+  transition: transform .4s, box-shadow .4s;
+}
+.milestone-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(139,92,246,0.18);
+}
+.milestone-card .num {
+  font-size: 2.8rem; font-weight:800;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  line-height:1;
+  margin-bottom:1rem;
+}
+.milestone-card .lbl {
+  color: var(--text-soft); font-size:.95rem;
+  margin-bottom:1.3rem; font-weight:500;
+}
+.milestone-card .ic {
+  font-size:2rem; display:block; opacity:.7;
+}
+
+/* ============ TIMELINE ============ */
+.timeline-sec {
+  padding: 2rem 6% 6rem;
+  max-width:1300px; margin:0 auto;
+}
+.tl-wrap {
+  max-width:900px; margin:0 auto;
+  position:relative; padding-left:60px;
+}
+.tl-wrap::before {
+  content:''; position:absolute;
+  left:22px; top:10px; bottom:10px;
+  width:2px;
+  background: linear-gradient(180deg, #8b5cf6, #0ea5e9, #14b8a6);
+  border-radius:2px;
+}
+.tl-node {
+  position:relative;
+  margin-bottom:2.5rem;
+}
+.tl-node::before {
+  content:''; position:absolute;
+  left:-52px; top:24px;
+  width:44px; height:44px; border-radius:50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  box-shadow: 0 0 0 6px var(--bg), 0 8px 20px rgba(139,92,246,0.4);
+  z-index:1;
+}
+.tl-node .icon {
+  position:absolute;
+  left:-45px; top:31px;
+  font-size:1.2rem; z-index:2;
+}
+
+.tl-card {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:20px; padding:2rem 2rem 1.8rem;
+  box-shadow: var(--shadow);
+  transition: transform .4s, box-shadow .4s;
+  position:relative;
+}
+.tl-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(139,92,246,0.15);
+}
+
+.tl-head {
+  display:flex; justify-content:space-between;
+  align-items:flex-start; gap:1rem;
+  margin-bottom:.8rem; flex-wrap:wrap;
+}
+.tl-year {
+  color: var(--primary); font-weight:700;
+  font-size:.9rem;
+}
+.tl-status {
+  font-size:.75rem; font-weight:600;
+  padding:.35rem .9rem; border-radius:50px;
+  white-space:nowrap;
+}
+.tl-status.completed {
+  background: rgba(14,165,233,0.1); color: var(--primary);
+  border:1px solid rgba(14,165,233,0.25);
+}
+.tl-status.progress {
+  background: rgba(139,92,246,0.1); color: var(--purple);
+  border:1px solid rgba(139,92,246,0.25);
+}
+.tl-status.planned {
+  background: rgba(20,184,166,0.1); color: var(--secondary);
+  border:1px solid rgba(20,184,166,0.25);
+}
+
+.tl-card h3 {
+  font-size:1.3rem; font-weight:700;
+  margin-bottom:.4rem; color:var(--text);
+}
+.tl-card .inst {
+  color: var(--text-soft); font-weight:500;
+  font-size:.95rem; margin-bottom:.8rem;
+}
+.tl-card p {
+  color: var(--text-soft); font-size:.95rem;
+  line-height:1.7; margin-bottom:1.1rem;
+}
+
+.tl-tags {
+  display:flex; flex-wrap:wrap; gap:.5rem;
+}
+.tl-tags span {
+  font-size:.78rem; padding:.35rem .9rem;
+  border-radius:50px;
+  background: rgba(14,165,233,0.08);
+  color: var(--primary);
+  border:1px solid rgba(14,165,233,0.2);
+  font-weight:500;
+}
+
+/* ============ CTA ============ */
+.cta {
+  padding: 0 6% 6rem;
+  max-width:1000px; margin:0 auto;
+}
+.cta-box {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:28px; padding: 4rem 2rem; text-align:center;
+  box-shadow: 0 20px 50px rgba(139,92,246,0.1);
+  position:relative; overflow:hidden;
+}
+.cta-box::before {
+  content:''; position:absolute;
+  top:0; left:0; width:100%; height:5px;
+  background: var(--grad);
+}
+.cta-box h2 {
+  font-size: clamp(2rem,4.5vw,3rem); font-weight:800;
+  margin-bottom:1rem;
+}
+.cta-box h2 span {
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.cta-box p {
+  color: var(--text-soft); font-size:1.05rem;
+  margin-bottom:2rem;
+}
+.cta-btn {
+  display:inline-block;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  color:white; padding:1rem 2.5rem;
+  border-radius:50px; text-decoration:none;
+  font-weight:600; font-size:1rem;
+  box-shadow: 0 12px 30px rgba(139,92,246,0.4);
+  transition:.3s;
+}
+.cta-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(139,92,246,0.55);
+}
+
+/* ============================================
+   RESPONSIVE — EDUCATION PAGE
+   ============================================ */
+
+/* ===== LARGE DESKTOP (1440px+) ===== */
+@media (min-width: 1440px) {
+  .milestones, .timeline-sec { max-width:1400px; }
+}
+
+/* ===== SMALL LAPTOP (1025px - 1439px) ===== */
+@media (max-width: 1439px) {
+  .edu-hero { padding: 130px 5% 40px; }
+}
+
+/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
+@media (max-width: 1024px) {
+  .edu-hero { padding: 120px 5% 35px; }
+  .milestones { padding: 3.5rem 5% 4rem; }
+  .milestone-grid { gap:1.4rem; margin-top:2.5rem; }
+  .timeline-sec { padding: 1.5rem 5% 5rem; }
+  .tl-wrap { padding-left:55px; }
+  .tl-wrap::before { left:20px; }
+  .tl-node::before { left:-48px; width:40px; height:40px; top:22px; }
+  .tl-node .icon { left:-42px; top:29px; font-size:1.1rem; }
+}
+
+/* ===== TABLET PORTRAIT (601px - 768px) ===== */
+@media (max-width: 768px) {
+  .edu-hero { padding: 110px 5% 30px; }
+  .edu-hero p { font-size:.98rem; }
+
+  /* Milestones — 2 columns */
+  .milestones { padding: 3rem 5% 3rem; }
+  .milestone-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap:1.2rem;
+    margin-top:2rem;
+  }
+  .milestone-card { padding:2rem 1.2rem; border-radius:18px; }
+  .milestone-card .num { font-size:2.3rem; margin-bottom:.8rem; }
+  .milestone-card .lbl { font-size:.88rem; margin-bottom:1rem; }
+  .milestone-card .ic { font-size:1.7rem; }
+
+  /* Timeline */
+  .timeline-sec { padding: 1.5rem 5% 4rem; }
+  .tl-wrap { padding-left:50px; }
+  .tl-wrap::before { left:18px; }
+  .tl-node { margin-bottom:2rem; }
+  .tl-node::before { left:-44px; width:38px; height:38px; top:20px; }
+  .tl-node .icon { left:-38px; top:27px; font-size:1rem; }
+  .tl-card { padding:1.5rem 1.4rem 1.4rem; border-radius:16px; }
+  .tl-card h3 { font-size:1.15rem; }
+  .tl-card p { font-size:.9rem; }
+  .tl-tags span { font-size:.72rem; padding:.3rem .75rem; }
+
+  .cta { padding: 0 5% 4rem; }
+  .cta-box { padding:3rem 1.5rem; border-radius:22px; }
+}
+
+/* ===== MOBILE LANDSCAPE (481px - 600px) ===== */
+@media (max-width: 600px) {
+  .edu-hero { padding: 100px 5% 25px; }
+  .edu-hero h1 { font-size: clamp(1.9rem, 7vw, 2.3rem); }
+  .edu-hero p { font-size:.92rem; }
+
+  .milestones { padding: 2.5rem 5% 2.5rem; }
+  .milestone-grid { gap:1rem; margin-top:1.7rem; }
+  .milestone-card { padding:1.7rem 1rem; border-radius:16px; }
+  .milestone-card .num { font-size:2rem; margin-bottom:.7rem; }
+  .milestone-card .lbl { font-size:.82rem; margin-bottom:.9rem; }
+  .milestone-card .ic { font-size:1.5rem; }
+
+  .timeline-sec { padding: 1rem 5% 3rem; }
+  .tl-wrap { padding-left:45px; }
+  .tl-wrap::before { left:16px; }
+  .tl-node { margin-bottom:1.7rem; }
+  .tl-node::before { left:-40px; width:34px; height:34px; top:18px; }
+  .tl-node .icon { left:-34px; top:24px; font-size:.95rem; }
+  .tl-card { padding:1.3rem 1.2rem 1.2rem; }
+  .tl-head { gap:.7rem; margin-bottom:.6rem; }
+  .tl-year { font-size:.82rem; }
+  .tl-status { font-size:.7rem; padding:.3rem .75rem; }
+  .tl-card h3 { font-size:1.05rem; margin-bottom:.3rem; }
+  .tl-card .inst { font-size:.85rem; margin-bottom:.6rem; }
+  .tl-card p { font-size:.85rem; line-height:1.6; margin-bottom:.9rem; }
+  .tl-tags span { font-size:.68rem; padding:.28rem .7rem; }
+
+  .cta-box h2 { font-size:1.6rem; }
+  .cta-box p { font-size:.95rem; }
+  .cta-btn { padding:.9rem 2rem; font-size:.92rem; }
+}
+
+/* ===== MOBILE (320px - 480px) ===== */
+@media (max-width: 480px) {
+  .edu-hero { padding: 95px 5% 20px; }
+  .edu-hero .tag { font-size:.72rem; letter-spacing:2px; }
+  .edu-hero h1 { font-size:1.7rem; }
+  .edu-hero p { font-size:.88rem; margin-top:1rem; }
+
+  /* Milestones stack to 1 column */
+  .milestones { padding: 2rem 5% 2rem; }
+  .milestone-grid {
+    grid-template-columns: 1fr;
+    gap:.9rem;
+    margin-top:1.5rem;
+  }
+  .milestone-card { padding:1.5rem 1.1rem; border-radius:14px; }
+  .milestone-card .num { font-size:1.9rem; margin-bottom:.6rem; }
+  .milestone-card .lbl { font-size:.82rem; margin-bottom:.8rem; }
+  .milestone-card .ic { font-size:1.4rem; }
+
+  /* Timeline tighter */
+  .timeline-sec { padding: 1rem 5% 2.5rem; }
+  .tl-wrap { padding-left:38px; }
+  .tl-wrap::before { left:13px; width:2px; }
+  .tl-node { margin-bottom:1.5rem; }
+  .tl-node::before {
+    left:-34px; top:16px;
+    width:30px; height:30px;
+    box-shadow: 0 0 0 4px var(--bg), 0 6px 15px rgba(139,92,246,0.35);
+  }
+  .tl-node .icon { left:-29px; top:21px; font-size:.85rem; }
+  .tl-card { padding:1.2rem 1rem 1.1rem; border-radius:14px; }
+  .tl-head { gap:.6rem; margin-bottom:.5rem; }
+  .tl-year { font-size:.78rem; }
+  .tl-status { font-size:.65rem; padding:.28rem .65rem; }
+  .tl-card h3 { font-size:.98rem; }
+  .tl-card .inst { font-size:.8rem; }
+  .tl-card p { font-size:.82rem; line-height:1.55; margin-bottom:.8rem; }
+  .tl-tags { gap:.4rem; }
+  .tl-tags span { font-size:.65rem; padding:.25rem .65rem; }
+
+  .cta { padding: 0 5% 3rem; }
+  .cta-box { padding:2.5rem 1.3rem; border-radius:20px; }
+  .cta-box h2 { font-size:1.4rem; }
+  .cta-box p { font-size:.88rem; margin-bottom:1.5rem; }
+  .cta-btn { padding:.85rem 1.8rem; font-size:.88rem; }
+}
+
+/* ===== VERY SMALL (up to 360px) ===== */
+@media (max-width: 360px) {
+  .edu-hero h1 { font-size:1.5rem; }
+  .edu-hero p { font-size:.82rem; }
+
+  .milestone-card { padding:1.3rem 1rem; }
+  .milestone-card .num { font-size:1.7rem; }
+  .milestone-card .lbl { font-size:.78rem; }
+
+  .tl-wrap { padding-left:34px; }
+  .tl-wrap::before { left:11px; }
+  .tl-node::before { left:-30px; top:14px; width:26px; height:26px; }
+  .tl-node .icon { left:-25px; top:18px; font-size:.78rem; }
+  .tl-card { padding:1rem .9rem 1rem; }
+  .tl-card h3 { font-size:.92rem; }
+  .tl-card p { font-size:.78rem; }
+
+  .cta-box h2 { font-size:1.25rem; }
+  .cta-btn { padding:.8rem 1.5rem; font-size:.85rem; }
+}
+
+/* ===== TOUCH DEVICES ===== */
+@media (hover: none) and (pointer: coarse) {
+  .milestone-card:hover,
+  .tl-card:hover {
+    transform:none;
+  }
+  .cta-btn:hover {
+    transform:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="logo">Inshara <span>Naaz</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="education.html" class="active">Education</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="theme-toggle" id="themeToggle">☀️</button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== HERO ===== -->
+<header class="edu-hero">
+  <div class="tag reveal">My Education</div>
+  <div class="tag-line reveal"></div>
+  <h1 class="reveal">Learning <span>Journey</span></h1>
+  <p class="reveal">Building a strong foundation through continuous learning and education</p>
+</header>
+
+<!-- ===== LEARNING MILESTONES ===== -->
+<section class="milestones">
+  <div class="sec-head reveal">
+    <div class="tag">Education Stats</div>
+    <div class="tag-line"></div>
+    <h2>Learning <span>Milestones</span></h2>
+  </div>
+
+  <div class="milestone-grid">
+    <div class="milestone-card reveal">
+      <div class="num" data-target="4">0+</div>
+      <div class="lbl">Educational Programs</div>
+      <span class="ic">🎓</span>
+    </div>
+    <div class="milestone-card reveal">
+      <div class="num" data-target="13">0+</div>
+      <div class="lbl">Technologies Learned</div>
+      <span class="ic">💻</span>
+    </div>
+    <div class="milestone-card reveal">
+      <div class="num" data-target="3">0+</div>
+      <div class="lbl">Projects Built</div>
+      <span class="ic">🚀</span>
+    </div>
+    <div class="milestone-card reveal">
+      <div class="num" data-target="2">0+</div>
+      <div class="lbl">Years of Learning</div>
+      <span class="ic">📚</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="timeline-sec">
+  <div class="tl-wrap">
+
+    <!-- BS Software Engineering (Planned) -->
+    <div class="tl-node reveal">
+      <div class="icon">🎓</div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-year">2027 (Planned)</div>
+          <div class="tl-status planned">Planned</div>
+        </div>
+        <h3>BS Software Engineering</h3>
+        <div class="inst">Upcoming Degree</div>
+        <p>
+          Planning to pursue a Bachelor's degree in Software Engineering starting 2027 to
+          strengthen my academic foundation and build advanced expertise in software
+          development, system design, and modern engineering practices.
+        </p>
+        <div class="tl-tags">
+          <span>Software Engineering</span>
+          <span>Programming</span>
+          <span>System Design</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCP AI Diploma (In Progress) -->
+    <div class="tl-node reveal">
+      <div class="icon">💻</div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-year">2024 - Present</div>
+          <div class="tl-status progress">In Progress</div>
+        </div>
+        <h3>ACCP AI Software Engineering Diploma</h3>
+        <div class="inst">Aptech Computer Education</div>
+        <p>
+          Currently studying HDSE 2 with hands-on experience in frontend development,
+          backend development, database management, and modern web application development.
+          Building practical skills through real-world projects.
+        </p>
+        <div class="tl-tags">
+          <span>HTML</span><span>CSS</span><span>Bootstrap</span>
+          <span>JavaScript</span><span>Angular</span><span>PHP</span>
+          <span>MySQL</span><span>SQL Server</span><span>C#</span>
+          <span>ASP.NET MVC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intermediate (Completed) -->
+    <div class="tl-node reveal">
+      <div class="icon">📖</div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-year">2021</div>
+          <div class="tl-status completed">Completed</div>
+        </div>
+        <h3>Intermediate (Inter)</h3>
+        <div class="inst">Completed</div>
+        <p>
+          Successfully completed intermediate education, building a strong academic
+          foundation in core subjects and developing the analytical skills that
+          supported my transition into software development.
+        </p>
+        <div class="tl-tags">
+          <span>Arts</span>
+          <span>Humanities</span>
+          <span>Social Studies</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Matriculation (Completed) -->
+    <div class="tl-node reveal">
+      <div class="icon">🎒</div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <div class="tl-year">2019</div>
+          <div class="tl-status completed">Completed</div>
+        </div>
+        <h3>Matriculation (Matric)</h3>
+        <div class="inst">Completed</div>
+        <p>
+          Completed matriculation with a strong foundation in core subjects including
+          Mathematics and Science. Developed analytical thinking and problem-solving
+          skills that laid the groundwork for my programming journey.
+        </p>
+        <div class="tl-tags">
+          <span>Mathematics</span>
+          <span>Science</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="cta-box reveal">
+    <h2>Let's Build <span>Together</span></h2>
+    <p>I'm always looking for new opportunities to learn and grow.</p>
+    <a href="contact.html" class="cta-btn">Contact Me</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-wrap">
+    <div class="f-col">
+      <div class="f-logo">Inshara <span>Naaz</span></div>
+      <p>Full Stack Web Developer crafting modern, responsive, and database-driven web applications.</p>
+      <div class="f-socials">
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="Instagram">◉</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Quick Links</h4>
+      <ul class="f-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Let's Connect</h4>
+      <p class="connect-text">Have a project in mind? Let's work together.</p>
+      <a href="contact.html" class="f-btn">Get in Touch</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Inshara Naaz. All rights reserved. Built with 💜
+  </div>
+</footer>
+
+<button class="scroll-top">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>

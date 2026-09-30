@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inshara Naaz | About</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ============ ABOUT PAGE SPECIFIC ============ */
+.about-hero {
+  padding: 140px 6% 60px;
+  text-align:center;
+}
+.about-hero .tag {
+  color: var(--primary); font-weight:700;
+  font-size:.8rem; letter-spacing:3px; text-transform:uppercase;
+}
+.about-hero .tag-line {
+  width:50px; height:3px; background: var(--grad);
+  margin:.6rem auto 1.2rem; border-radius:3px;
+}
+.about-hero h1 {
+  font-size: clamp(2.5rem,5vw,4rem); font-weight:800;
+  line-height:1.1;
+}
+.about-hero h1 span {
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.about-hero p {
+  color: var(--text-soft); max-width:620px;
+  margin:1.2rem auto 0; font-size:1.05rem;
+}
+
+/* ============ WHO I AM ============ */
+.who {
+  padding: 4rem 6% 6rem;
+  max-width:1300px; margin:0 auto;
+}
+.who-wrap {
+  display:grid; grid-template-columns: 1fr 1.2fr;
+  gap:4rem; align-items:center;
+}
+.who-img {
+  aspect-ratio: 4/5;
+  border-radius:24px; overflow:hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  box-shadow: 0 30px 60px rgba(139,92,246,0.3);
+  position:relative;
+}
+.who-img img { width:100%; height:100%; object-fit:cover; }
+.who-img .placeholder {
+  width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+  font-size:6rem; color:white;
+}
+.who-text h2 {
+  font-size: clamp(2rem,4vw,2.8rem); font-weight:800;
+  margin-bottom:1.5rem;
+}
+.who-text h2 span {
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.who-text p {
+  color: var(--text-soft); margin-bottom:1.2rem;
+  font-size:1.02rem; line-height:1.75;
+}
+.who-text p strong { color: var(--primary); font-weight:600; }
+
+.who-stats {
+  display:grid; grid-template-columns: repeat(3,1fr);
+  gap:1rem; margin-top:2rem;
+}
+.who-stat {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:16px; padding:1.3rem .8rem; text-align:center;
+  box-shadow: var(--shadow);
+}
+.who-stat .num {
+  font-size:1.6rem; font-weight:800;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.who-stat .lbl {
+  color: var(--text-soft); font-size:.78rem; margin-top:.4rem;
+}
+
+/* ============ HOW I STARTED (Timeline) ============ */
+.journey {
+  padding: 6rem 6%;
+  max-width:1300px; margin:0 auto;
+}
+.tl-wrap {
+  max-width:850px; margin:0 auto;
+  position:relative; padding-left:60px;
+}
+.tl-wrap::before {
+  content:''; position:absolute; left:22px; top:10px; bottom:10px;
+  width:2px; background: linear-gradient(180deg, #8b5cf6, #0ea5e9, #14b8a6);
+  border-radius:2px;
+}
+.tl-node {
+  position:relative; margin-bottom:2.5rem;
+}
+.tl-node::before {
+  content:''; position:absolute;
+  left:-52px; top:20px;
+  width:44px; height:44px; border-radius:50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  box-shadow: 0 0 0 6px var(--bg), 0 8px 20px rgba(139,92,246,0.4);
+  display:flex; align-items:center; justify-content:center;
+}
+.tl-node .icon {
+  position:absolute; left:-45px; top:27px;
+  font-size:1.2rem; z-index:2;
+}
+.tl-card {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:20px; padding:2rem;
+  box-shadow: var(--shadow);
+  transition: transform .4s, box-shadow .4s;
+}
+.tl-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(139,92,246,0.15);
+}
+.tl-year {
+  display:inline-block;
+  background: rgba(14,165,233,0.1); color: var(--primary);
+  padding:.3rem .9rem; border-radius:50px;
+  font-size:.8rem; font-weight:600; margin-bottom:.8rem;
+}
+.tl-card h3 { font-size:1.25rem; font-weight:700; margin-bottom:.6rem; }
+.tl-card p { color: var(--text-soft); font-size:.95rem; margin-bottom:1rem; line-height:1.7; }
+.tl-tags { display:flex; flex-wrap:wrap; gap:.5rem; }
+.tl-tags span {
+  font-size:.78rem; padding:.32rem .85rem; border-radius:50px;
+  background: rgba(14,165,233,0.08); color: var(--primary);
+  border:1px solid rgba(14,165,233,0.2); font-weight:500;
+}
+
+/* ============ WHAT DRIVES ME ============ */
+.drives {
+  padding: 6rem 6%;
+  background: var(--bg-alt);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.drives-inner { max-width:1300px; margin:0 auto; }
+.drives-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap:1.8rem;
+}
+.drive-card {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:20px; padding:2.5rem 1.5rem; text-align:center;
+  box-shadow: var(--shadow);
+  transition: transform .4s, box-shadow .4s;
+}
+.drive-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(139,92,246,0.18);
+}
+.drive-icon {
+  font-size:2.5rem; margin-bottom:1.2rem; display:block;
+}
+.drive-card h3 { font-size:1.15rem; font-weight:700; margin-bottom:.8rem; }
+.drive-card p { color: var(--text-soft); font-size:.9rem; line-height:1.7; }
+
+/* ============ FUTURE ASPIRATIONS ============ */
+.aspire {
+  padding: 6rem 6%;
+  max-width:1300px; margin:0 auto;
+}
+.aspire-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap:1.8rem;
+}
+.aspire-card {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:20px; padding:2.2rem;
+  box-shadow: var(--shadow);
+  position:relative;
+  transition: transform .4s, box-shadow .4s;
+}
+.aspire-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(139,92,246,0.18);
+}
+.aspire-num {
+  font-size:3rem; font-weight:800;
+  color: rgba(139,92,246,0.15);
+  line-height:1; margin-bottom:.5rem;
+}
+.aspire-card h3 { font-size:1.2rem; font-weight:700; margin-bottom:.7rem; }
+.aspire-card p { color: var(--text-soft); font-size:.92rem; margin-bottom:1.3rem; }
+.aspire-bar {
+  height:8px; background: var(--border); border-radius:50px;
+  overflow:hidden; margin-bottom:.6rem;
+}
+.aspire-bar span {
+  display:block; height:100%; width:0;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  border-radius:50px;
+  transition: width 1.4s ease;
+}
+.aspire-pct {
+  color: var(--text-soft); font-size:.85rem; font-weight:500;
+}
+
+/* ============ CTA (Let's Work Together) ============ */
+.cta {
+  padding: 2rem 6% 6rem;
+  max-width:1000px; margin:0 auto;
+}
+.cta-box {
+  background: var(--card); border:1px solid var(--border);
+  border-radius:28px; padding: 4rem 2rem; text-align:center;
+  box-shadow: 0 20px 50px rgba(139,92,246,0.1);
+  position:relative; overflow:hidden;
+}
+.cta-box::before {
+  content:''; position:absolute; top:0; left:0; width:100%; height:5px;
+  background: var(--grad);
+}
+.cta-box h2 {
+  font-size: clamp(2rem,4.5vw,3rem); font-weight:800;
+  margin-bottom:1rem;
+}
+.cta-box h2 span {
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.cta-box p {
+  color: var(--text-soft); font-size:1.05rem;
+  margin-bottom:2rem;
+}
+.cta-btn {
+  display:inline-block;
+  background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+  color:white; padding:1rem 2.5rem;
+  border-radius:50px; text-decoration:none;
+  font-weight:600; font-size:1rem;
+  box-shadow: 0 12px 30px rgba(139,92,246,0.4);
+  transition:.3s;
+}
+.cta-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(139,92,246,0.55);
+}
+
+/* ============================================
+   RESPONSIVE — ABOUT PAGE
+   ============================================ */
+
+/* ===== LARGE DESKTOP (1440px+) ===== */
+@media (min-width: 1440px) {
+  .who, .journey, .aspire { max-width:1400px; }
+  .drives-inner { max-width:1400px; }
+}
+
+/* ===== SMALL LAPTOP (1025px - 1439px) ===== */
+@media (max-width: 1439px) {
+  .about-hero { padding: 130px 5% 55px; }
+}
+
+/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
+@media (max-width: 1024px) {
+  .about-hero { padding: 120px 5% 50px; }
+  .who { padding: 3.5rem 5% 5rem; }
+  .who-wrap { gap:3rem; }
+  .journey { padding: 5rem 5%; }
+  .drives { padding: 5rem 5%; }
+  .aspire { padding: 5rem 5%; }
+}
+
+/* ===== TABLET PORTRAIT (601px - 768px) ===== */
+@media (max-width: 768px) {
+  .about-hero { padding: 110px 5% 40px; }
+  .about-hero p { font-size:.98rem; }
+
+  /* Who I Am — stack */
+  .who { padding: 3rem 5% 4rem; }
+  .who-wrap {
+    grid-template-columns: 1fr;
+    gap:2.5rem;
+  }
+  .who-img {
+    max-width:320px;
+    margin:0 auto;
+    border-radius:20px;
+  }
+  .who-text h2 { font-size:1.7rem; margin-bottom:1.2rem; }
+  .who-text p { font-size:.95rem; }
+
+  .who-stats { gap:.8rem; margin-top:1.7rem; }
+  .who-stat { padding:1.1rem .6rem; border-radius:14px; }
+  .who-stat .num { font-size:1.4rem; }
+  .who-stat .lbl { font-size:.72rem; }
+
+  /* Timeline */
+  .journey { padding: 4rem 5%; }
+  .tl-wrap { padding-left:50px; }
+  .tl-wrap::before { left:18px; }
+  .tl-node { margin-bottom:2rem; }
+  .tl-node::before {
+    left:-44px; top:18px;
+    width:38px; height:38px;
+    box-shadow: 0 0 0 5px var(--bg), 0 6px 15px rgba(139,92,246,0.35);
+  }
+  .tl-node .icon { left:-38px; top:24px; font-size:1rem; }
+  .tl-card { padding:1.5rem 1.4rem; border-radius:16px; }
+  .tl-card h3 { font-size:1.15rem; }
+  .tl-card p { font-size:.9rem; }
+
+  /* Drives */
+  .drives { padding: 4rem 5%; }
+  .drives-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap:1.2rem;
+  }
+  .drive-card { padding:2rem 1.2rem; border-radius:16px; }
+  .drive-icon { font-size:2.2rem; margin-bottom:1rem; }
+  .drive-card h3 { font-size:1.05rem; }
+  .drive-card p { font-size:.85rem; }
+
+  /* Aspire */
+  .aspire { padding: 4rem 5%; }
+  .aspire-grid {
+    grid-template-columns: 1fr;
+    gap:1.2rem;
+  }
+  .aspire-card { padding:1.8rem; border-radius:16px; }
+  .aspire-num { font-size:2.5rem; }
+  .aspire-card h3 { font-size:1.1rem; }
+  .aspire-card p { font-size:.88rem; }
+
+  .cta { padding: 1rem 5% 4rem; }
+  .cta-box { padding:3rem 1.5rem; border-radius:22px; }
+}
+
+/* ===== MOBILE LANDSCAPE (481px - 600px) ===== */
+@media (max-width: 600px) {
+  .about-hero { padding: 100px 5% 35px; }
+  .about-hero h1 { font-size: clamp(1.9rem, 7vw, 2.3rem); }
+  .about-hero p { font-size:.92rem; }
+
+  .who { padding: 2.5rem 5% 3rem; }
+  .who-img { max-width:280px; border-radius:18px; }
+  .who-text h2 { font-size:1.5rem; margin-bottom:1rem; }
+  .who-text p { font-size:.9rem; margin-bottom:1rem; }
+
+  .who-stats { gap:.6rem; margin-top:1.5rem; }
+  .who-stat { padding:1rem .5rem; border-radius:12px; }
+  .who-stat .num { font-size:1.25rem; }
+  .who-stat .lbl { font-size:.68rem; }
+
+  .journey { padding: 3rem 5%; }
+  .tl-wrap { padding-left:45px; }
+  .tl-wrap::before { left:16px; }
+  .tl-node { margin-bottom:1.7rem; }
+  .tl-node::before {
+    left:-40px; top:16px;
+    width:34px; height:34px;
+  }
+  .tl-node .icon { left:-34px; top:22px; font-size:.9rem; }
+  .tl-card { padding:1.3rem 1.2rem; }
+  .tl-year { font-size:.72rem; padding:.25rem .75rem; }
+  .tl-card h3 { font-size:1.05rem; }
+  .tl-card p { font-size:.85rem; margin-bottom:.8rem; }
+  .tl-tags span { font-size:.7rem; padding:.28rem .7rem; }
+
+  .drives { padding: 3rem 5%; }
+  .drives-grid { gap:1rem; }
+  .drive-card { padding:1.7rem 1rem; }
+  .drive-icon { font-size:2rem; margin-bottom:.9rem; }
+  .drive-card h3 { font-size:1rem; }
+  .drive-card p { font-size:.82rem; }
+
+  .aspire { padding: 3rem 5%; }
+  .aspire-card { padding:1.6rem; }
+  .aspire-num { font-size:2.2rem; margin-bottom:.4rem; }
+  .aspire-card h3 { font-size:1.05rem; }
+  .aspire-card p { font-size:.85rem; margin-bottom:1rem; }
+
+  .cta-box h2 { font-size:1.6rem; }
+  .cta-box p { font-size:.95rem; }
+  .cta-btn { padding:.9rem 2rem; font-size:.92rem; }
+}
+
+/* ===== MOBILE (320px - 480px) ===== */
+@media (max-width: 480px) {
+  .about-hero { padding: 95px 5% 30px; }
+  .about-hero .tag { font-size:.72rem; letter-spacing:2px; }
+  .about-hero h1 { font-size:1.7rem; }
+  .about-hero p { font-size:.88rem; margin-top:1rem; }
+
+  .who { padding: 2rem 5% 2.5rem; }
+  .who-img { max-width:240px; border-radius:16px; }
+  .who-text h2 { font-size:1.35rem; }
+  .who-text p { font-size:.85rem; line-height:1.65; }
+
+  /* Stats — stack to 1 column */
+  .who-stats {
+    grid-template-columns: 1fr;
+    gap:.7rem;
+    margin-top:1.3rem;
+  }
+  .who-stat {
+    padding:1rem .8rem;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    text-align:left;
+  }
+  .who-stat .num { font-size:1.5rem; }
+  .who-stat .lbl { font-size:.78rem; margin-top:0; }
+
+  .journey { padding: 2.5rem 5%; }
+  .tl-wrap { padding-left:38px; }
+  .tl-wrap::before { left:13px; }
+  .tl-node { margin-bottom:1.5rem; }
+  .tl-node::before {
+    left:-34px; top:14px;
+    width:30px; height:30px;
+    box-shadow: 0 0 0 4px var(--bg), 0 5px 12px rgba(139,92,246,0.35);
+  }
+  .tl-node .icon { left:-29px; top:19px; font-size:.82rem; }
+  .tl-card { padding:1.1rem 1rem; border-radius:14px; }
+  .tl-year { font-size:.68rem; padding:.22rem .65rem; margin-bottom:.6rem; }
+  .tl-card h3 { font-size:.98rem; margin-bottom:.5rem; }
+  .tl-card p { font-size:.8rem; line-height:1.55; }
+  .tl-tags { gap:.35rem; }
+  .tl-tags span { font-size:.65rem; padding:.25rem .6rem; }
+
+  .drives { padding: 2.5rem 5%; }
+  .drives-grid {
+    grid-template-columns: 1fr;
+    gap:.9rem;
+  }
+  .drive-card { padding:1.5rem 1.1rem; border-radius:14px; }
+  .drive-icon { font-size:1.8rem; margin-bottom:.8rem; }
+  .drive-card h3 { font-size:.95rem; margin-bottom:.5rem; }
+  .drive-card p { font-size:.8rem; line-height:1.55; }
+
+  .aspire { padding: 2.5rem 5%; }
+  .aspire-grid { gap:1rem; }
+  .aspire-card { padding:1.4rem; border-radius:14px; }
+  .aspire-num { font-size:2rem; }
+  .aspire-card h3 { font-size:1rem; }
+  .aspire-card p { font-size:.82rem; margin-bottom:.9rem; }
+  .aspire-bar { height:7px; }
+  .aspire-pct { font-size:.78rem; }
+
+  .cta { padding: 1rem 5% 3rem; }
+  .cta-box { padding:2.5rem 1.3rem; border-radius:20px; }
+  .cta-box h2 { font-size:1.4rem; }
+  .cta-box p { font-size:.88rem; margin-bottom:1.5rem; }
+  .cta-btn { padding:.85rem 1.8rem; font-size:.88rem; }
+}
+
+/* ===== VERY SMALL (up to 360px) ===== */
+@media (max-width: 360px) {
+  .about-hero h1 { font-size:1.5rem; }
+  .about-hero p { font-size:.82rem; }
+
+  .who-img { max-width:210px; }
+  .who-text h2 { font-size:1.2rem; }
+  .who-text p { font-size:.8rem; }
+
+  .who-stat { padding:.9rem .7rem; }
+  .who-stat .num { font-size:1.3rem; }
+  .who-stat .lbl { font-size:.72rem; }
+
+  .tl-wrap { padding-left:34px; }
+  .tl-wrap::before { left:11px; }
+  .tl-node::before { left:-30px; top:13px; width:26px; height:26px; }
+  .tl-node .icon { left:-25px; top:17px; font-size:.75rem; }
+  .tl-card { padding:1rem .9rem; }
+  .tl-card h3 { font-size:.9rem; }
+  .tl-card p { font-size:.75rem; }
+
+  .drive-card { padding:1.3rem 1rem; }
+  .drive-icon { font-size:1.6rem; }
+  .drive-card h3 { font-size:.88rem; }
+  .drive-card p { font-size:.75rem; }
+
+  .aspire-card { padding:1.2rem; }
+  .aspire-num { font-size:1.8rem; }
+  .aspire-card h3 { font-size:.92rem; }
+  .aspire-card p { font-size:.78rem; }
+
+  .cta-box h2 { font-size:1.25rem; }
+  .cta-btn { padding:.8rem 1.5rem; font-size:.85rem; }
+}
+
+/* ===== TOUCH DEVICES ===== */
+@media (hover: none) and (pointer: coarse) {
+  .tl-card:hover,
+  .drive-card:hover,
+  .aspire-card:hover {
+    transform:none;
+  }
+  .cta-btn:hover {
+    transform:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="logo">Inshara <span>Naaz</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="theme-toggle" id="themeToggle">☀️</button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== ABOUT HERO ===== -->
+<header class="about-hero">
+  <div class="tag reveal">About Me</div>
+  <div class="tag-line reveal"></div>
+  <h1 class="reveal">Know Me <span>Better</span></h1>
+  <p class="reveal">A passionate developer who turns ideas into elegant digital solutions</p>
+</header>
+
+<!-- ===== WHO I AM ===== -->
+<section class="who">
+  <div class="who-wrap">
+    <div class="who-img reveal">
+      <img src="images/hero.jpeg" alt="Inshara Naaz">
+      <div class="placeholder">👩‍💻</div>
+    </div>
+    <div class="who-text">
+      <h2 class="reveal">Who <span>I Am</span></h2>
+      <p class="reveal">
+        I am a passionate Full Stack Web Developer with hands-on experience in building
+        responsive, user-friendly, and database-driven web applications. I enjoy transforming
+        ideas into clean, modern, and efficient digital solutions.
+      </p>
+      <p class="reveal">
+        My technical experience includes <strong>HTML, CSS, Bootstrap, JavaScript, Angular,
+        React, PHP, MySQL, SQL Server, MongoDB, JSON, C#,</strong> and <strong>ASP.NET MVC</strong>.
+      </p>
+      <p class="reveal">
+        I continuously improve my skills through practical projects and by learning modern
+        technologies. My goal is to become a highly skilled software developer capable of
+        building scalable, secure, and visually engaging web applications.
+      </p>
+
+      <div class="who-stats">
+        <div class="who-stat reveal">
+          <div class="num" data-target="3">0+</div>
+          <div class="lbl">Projects Completed</div>
+        </div>
+        <div class="who-stat reveal">
+          <div class="num" data-target="2">0+</div>
+          <div class="lbl">Years of Learning</div>
+        </div>
+        <div class="who-stat reveal">
+          <div class="num" data-target="13">0+</div>
+          <div class="lbl">Technologies Used</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW I STARTED ===== -->
+<section class="journey">
+  <div class="sec-head reveal">
+    <div class="tag">My Journey</div>
+    <div class="tag-line"></div>
+    <h2>How I <span>Started</span></h2>
+    <p>From learning the basics to building full-stack applications</p>
+  </div>
+
+  <div class="tl-wrap">
+    <div class="tl-node reveal">
+      <div class="icon">🎨</div>
+      <div class="tl-card">
+        <div class="tl-year">2024</div>
+        <h3>Frontend Development Complete</h3>
+        <p>Mastered HTML, CSS, Bootstrap, JavaScript, and Angular. Built responsive, interactive, and modern user interfaces with complete frontend proficiency.</p>
+        <div class="tl-tags">
+          <span>HTML</span><span>CSS</span><span>Bootstrap</span><span>JavaScript</span><span>Angular</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-node reveal">
+      <div class="icon">🗄️</div>
+      <div class="tl-card">
+        <div class="tl-year">2025</div>
+        <h3>Backend &amp; Database Management</h3>
+        <p>Learned PHP, MySQL, SQL Server, and JSON. Started building dynamic database-driven applications with complete CRUD operations and data management.</p>
+        <div class="tl-tags">
+          <span>PHP</span><span>MySQL</span><span>SQL Server</span><span>JSON</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-node reveal">
+      <div class="icon">💻</div>
+      <div class="tl-card">
+        <div class="tl-year">2026</div>
+        <h3>Full Stack &amp; ASP.NET MVC</h3>
+        <p>Mastered C#, ASP.NET MVC, and full-stack development. Built complete enterprise-level web applications with secure architecture, authentication, and scalable design.</p>
+        <div class="tl-tags">
+          <span>C#</span><span>ASP.NET MVC</span><span>Full Stack</span><span>Enterprise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT DRIVES ME ===== -->
+<section class="drives">
+  <div class="drives-inner">
+    <div class="sec-head reveal">
+      <div class="tag">My Philosophy</div>
+      <div class="tag-line"></div>
+      <h2>What Drives <span>Me</span></h2>
+    </div>
+
+    <div class="drives-grid">
+      <div class="drive-card reveal">
+        <span class="drive-icon">💡</span>
+        <h3>Clean Code</h3>
+        <p>Writing readable, maintainable, and efficient code that follows best practices.</p>
+      </div>
+      <div class="drive-card reveal">
+        <span class="drive-icon">🎨</span>
+        <h3>Design Thinking</h3>
+        <p>Creating user-centered designs that are both beautiful and functional.</p>
+      </div>
+      <div class="drive-card reveal">
+        <span class="drive-icon">📚</span>
+        <h3>Continuous Learning</h3>
+        <p>Always exploring new technologies and improving my skills.</p>
+      </div>
+      <div class="drive-card reveal">
+        <span class="drive-icon">🤝</span>
+        <h3>Collaboration</h3>
+        <p>Working with others to create better solutions and share knowledge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FUTURE ASPIRATIONS ===== -->
+<section class="aspire">
+  <div class="sec-head reveal">
+    <div class="tag">My Goals</div>
+    <div class="tag-line"></div>
+    <h2>Future <span>Aspirations</span></h2>
+  </div>
+
+  <div class="aspire-grid">
+    <div class="aspire-card reveal">
+      <div class="aspire-num">01</div>
+      <h3>Master Full Stack</h3>
+      <p>Become an expert in both frontend and backend technologies.</p>
+      <div class="aspire-bar"><span data-width="85%"></span></div>
+      <div class="aspire-pct">85%</div>
+    </div>
+
+    <div class="aspire-card reveal">
+      <div class="aspire-num">02</div>
+      <h3>Cloud &amp; DevOps</h3>
+      <p>Learn cloud platforms and DevOps practices for scalable applications.</p>
+      <div class="aspire-bar"><span data-width="40%"></span></div>
+      <div class="aspire-pct">40%</div>
+    </div>
+
+    <div class="aspire-card reveal">
+      <div class="aspire-num">03</div>
+      <h3>Open Source</h3>
+      <p>Contribute to open source projects and give back to the community.</p>
+      <div class="aspire-bar"><span data-width="25%"></span></div>
+      <div class="aspire-pct">25%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="cta-box reveal">
+    <h2>Let's Work <span>Together</span></h2>
+    <p>Have a project in mind? Let's create something amazing together.</p>
+    <a href="contact.html" class="cta-btn">Contact Me</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-wrap">
+    <div class="f-col">
+      <div class="f-logo">Inshara <span>Naaz</span></div>
+      <p>Full Stack Web Developer crafting modern, responsive, and database-driven web applications.</p>
+      <div class="f-socials">
+        <a href="https://linkedin.com/in/inshara-naaz" target="_blank" title="LinkedIn">in</a>
+        <a href="#" title="Instagram">◉</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Quick Links</h4>
+      <ul class="f-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Let's Connect</h4>
+      <p class="connect-text">Have a project in mind? Let's work together.</p>
+      <a href="contact.html" class="f-btn">Get in Touch</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Inshara Naaz. All rights reserved. Built with 💜
+  </div>
+</footer>
+
+<button class="scroll-top">↑</button>
+
+<script src="script.js"></script>
+<script>
+  /* Aspire progress bars */
+  const aspireBars = document.querySelectorAll('.aspire-bar span');
+  const aspireObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.width;
+        aspireObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  aspireBars.forEach(b => aspireObs.observe(b));
+</script>
+</body>
+</html>
